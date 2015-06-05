@@ -4,10 +4,14 @@ block content
     h1= title
     form#formAddTeam(name="addteam", method="post", action="/addteam")
         input#inputTeamCaptain(type="text", placeholder="Team Captain", name="teamcaptain" autofocus)
+        br
         input#inputTeamNumber(type="text", placeholder="Team #", name="teamnumber")
+        br
         input#inputTeamScore(type="text", placeholder="Score", name="teamscore")
+        br
         button#btnSubmit(type="submit") Add Team
-
+        br
+        br
     table
         tr
             td Team #

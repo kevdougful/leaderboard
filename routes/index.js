@@ -17,7 +17,7 @@ router.get('/', function (req, res) {
 router.get('/addteam', function (req, res) {
     var db = req.db;
     var teams = db.get('Teams');
-    teams.find({}, {}, function (e, docs) {
+    teams.find({}, { "sort" : [['Team_Score','desc']] }, function (e, docs) {
         res.render('addteam', {
             "teamlist" : docs
         });
