@@ -1,5 +1,8 @@
 ﻿extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1.
+    Teams
+  ul
+    each team, i in teamlist
+      li= team.Team_Captain
