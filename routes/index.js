@@ -35,8 +35,8 @@ router.post('/addteam', function (req, res) {
 
     teams.insert({
         "Team_Captain" : captain,
-        "Team_Number" : number,
-        "Team_Score" : score
+        "Team_Number" : Number(number),
+        "Team_Score" : Number(score)
     }, function (err, doc) {
         if (err) {
             res.send("Error sending to database");
