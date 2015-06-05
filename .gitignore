@@ -1,3 +1,5 @@
 node_modules/
 *.sln
 *.njsproj
+
+public/stylesheets/style.css
