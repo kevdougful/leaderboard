@@ -27,7 +27,7 @@ build/Release
 node_modules
 
 # Custom
-*.ntvs_analysis.dat
-.njsproj
+.ntvs_analysis.dat
+*.njsproj
 style.css
 data
