@@ -2,5 +2,6 @@ node_modules/
 data/
 *.sln
 *.njsproj
-public/stylesheets/style.css.
+style.css
 *.dat
+.ntvs_analysis.dat
