@@ -1,8 +1,15 @@
 ﻿extends layout
 
 block content
-  h1.
-    Teams
-  ul
-    each team, i in teamlist
-      li= team.Team_Captain
+    h1 Leaderboard
+    table.table.table-striped
+        thead
+            tr
+                th Team #
+                th Captain
+                th Score
+        each team, i in teamlist
+            tr
+                td= team.Team_Number
+                td= team.Team_Captain
+                td= team.Team_Score
