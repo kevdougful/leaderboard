@@ -23,6 +23,7 @@ router.get('/addteam', function (req, res) {
         });
     });
 });
+
 router.post('/addteam', function (req, res) {
     var db = req.db;
 

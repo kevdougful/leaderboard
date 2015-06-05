@@ -3,7 +3,7 @@
 block content
     h1= title
     form#formAddTeam(name="addteam", method="post", action="/addteam")
-        input#inputTeamCaptain(type="text", placeholder="Team Captain", name="teamcaptain")
+        input#inputTeamCaptain(type="text", placeholder="Team Captain", name="teamcaptain" autofocus)
         input#inputTeamNumber(type="text", placeholder="Team #", name="teamnumber")
         input#inputTeamScore(type="text", placeholder="Score", name="teamscore")
         button#btnSubmit(type="submit") Add Team
