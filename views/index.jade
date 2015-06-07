@@ -13,7 +13,7 @@ block content
                 td= team.Team_Captain
                 td= team.Team_Score
                 td
-                    a.open-editteam(href="#editteam", data-toggle="modal", data-number="#{team.Team_Number}", data-captain="#{team.Team_Captain}", data-score="#{team.Team_Score}")
+                    a.open-editteam(href="#editteam", data-toggle="modal", data-hash="#{team._id}" data-number="#{team.Team_Number}", data-captain="#{team.Team_Captain}", data-score="#{team.Team_Score}")
                         span.glyphicon.glyphicon-edit
                 td
                     a
@@ -26,6 +26,9 @@ block content
                     h4.modal-title Edit Team
                 .modal-body
                     form#editteamform()
+                        .form-group
+                            label(for="#hash_id") Team ID
+                            p#hash_id
                         .form-group
                             label(for="teamnumber") Team Number
                             input#teamnumber.form-control(type="number", name="number" value="")
