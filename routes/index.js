@@ -28,14 +28,14 @@ router.post('/addteam', function (req, res) {
     var db = req.db;
 
     var captain = req.body.teamcaptain;
-    var number = req.body.teamnumber;
+    var t_number = req.body.teamnumber;
     var score = req.body.teamscore;
 
     var teams = db.get('Teams');
 
     teams.insert({
         "Team_Captain" : captain,
-        "Team_Number" : Number(number),
+        "Team_Number" : Number(t_number),
         "Team_Score" : Number(score)
     }, function (err, doc) {
         if (err) {
@@ -44,6 +44,35 @@ router.post('/addteam', function (req, res) {
         else {
             res.location("/addteam");
             res.redirect("/addteam");
+        }
+    });
+});
+
+/* EDIT Team */
+router.post('/editteam', function(req, res) {
+    var db = req.db;
+    
+    // Get query string contents
+    var hash = req.body.hash;
+    var t_number = req.body.number;
+    var captain = req.body.captain;
+    var score = req.body.score; 
+    
+    var teams = db.get('Teams');
+    
+    teams.update({
+        _id: hash 
+    }, { 
+        Team_Number: Number(t_number), 
+        Team_Captain: captain, 
+        Team_Score: Number(score)
+    }, function(err, doc) {
+        if (err) {
+            res.send("Error updating database");
+        }
+        else {
+            res.location("/");
+            res.redirect("/");
         }
     });
 });

@@ -25,7 +25,7 @@ block content
                     .glyphicon.glyphicon-remove.close(data-dismiss="modal")
                     h4.modal-title Edit Team
                 .modal-body
-                    form#editteamform()
+                    form#editteamform(name="editteam", method="post", action="/editteam")
                         .form-group
                             label(for="#hash_id") Team ID
                             input#hash_id.form-control(name="hash", readonly)
