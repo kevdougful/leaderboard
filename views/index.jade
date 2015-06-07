@@ -28,7 +28,7 @@ block content
                     form#editteamform()
                         .form-group
                             label(for="#hash_id") Team ID
-                            p#hash_id
+                            input#hash_id.form-control(name="hash", readonly)
                         .form-group
                             label(for="teamnumber") Team Number
                             input#teamnumber.form-control(type="number", name="number" value="")
