@@ -25,5 +25,16 @@ block content
                     .glyphicon.glyphicon-remove.close(data-dismiss="modal")
                     h4.modal-title Edit Team
                 .modal-body
-                    input#teamnumber(type="text", name="teamnumber" value="")
+                    form#editteamform()
+                        .form-group
+                            label(for="teamnumber") Team Number
+                            input#teamnumber.form-control(type="text", name="teamnumber" value="")
+                        .form-group
+                            label(for="teamcaptain") Captain
+                            input#teamcaptain.form-control(type="text", name="teamnumber" value="")
+                        .form-group
+                            label(for="teamscore") Score
+                            input#teamscore.form-control(type="text", name="teamnumber" value="")
+                        .form-group
+                            button#btnSubmit.btn.btn-default(type="submit") Save
     script(lang="javascript", src="javascripts/edit-team.js")
