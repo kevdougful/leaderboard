@@ -13,8 +13,16 @@ block content
                 td= team.Team_Captain
                 td= team.Team_Score
                 td
-                    a
+                    a.open-editteam(href="#editteam", data-toggle="modal", data-id="#{team.Team_Number}")
                         span.glyphicon.glyphicon-edit
                 td
                     a
                         span.glyphicon.glyphicon-trash
+    #editteam.modal.fade(role="dialog")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    .glyphicon.glyphicon-remove.close(data-dismiss="modal")
+                    h4.modal-title Edit Team
+                .modal-body
+                    input#teamnumber(type="text", name="teamnumber" value="")
