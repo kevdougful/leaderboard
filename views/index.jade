@@ -13,10 +13,10 @@ block content
                 td= team.Team_Captain
                 td= team.Team_Score
                 td
-                    a.open-editteam(href="#editteam", data-toggle="modal", data-hash="#{team._id}" data-number="#{team.Team_Number}", data-captain="#{team.Team_Captain}", data-score="#{team.Team_Score}")
+                    a.open(href="#editteam", data-toggle="modal", data-hash="#{team._id}" data-number="#{team.Team_Number}", data-captain="#{team.Team_Captain}", data-score="#{team.Team_Score}")
                         span.glyphicon.glyphicon-edit
                 td
-                    a
+                    a.open(href="#deleteconfirm", data-toggle="modal", data-hash="#{team._id}")
                         span.glyphicon.glyphicon-trash
     #editteam.modal.fade(role="dialog")
         .modal-dialog
@@ -40,4 +40,19 @@ block content
                             input#teamscore.form-control(type="number", name="score" value="")
                         .form-group
                             button#btnSubmit.btn.btn-default(type="submit") Save
+    #deleteconfirm.modal.fade(role="dialog")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    .glyphicon.glyphicon-remove.close(data-dismiss="modal")
+                    h4.modal-title Are you sure?
+                .modal-body
+                    form#formdeleteteam(name="deleteteam", method="post", action="/delete")
+                        .form-group
+                            p Are you sure you want to delete this team?
+                            input#hash_id.form-control(name="hash", readonly)
+                        .form-group
+                            button#btnYes.btn.btn-default(type="submit" style="background: #009900; color: white") Yes
+                            button#btnNo.btn.btn-default(data-dismiss="modal" style="background: #FF1919; color: white") No
+                            
     script(lang="javascript", src="javascripts/edit-team.js")

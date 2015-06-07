@@ -1,4 +1,4 @@
-$(document).on("click", ".open-editteam", function() {
+$(document).on("click", ".open", function() {
 	var hash_id = $(this).data('hash');
 	$(".modal-body #hash_id").val(hash_id);
 	var teamnum = $(this).data('number');

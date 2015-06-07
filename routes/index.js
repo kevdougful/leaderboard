@@ -77,4 +77,27 @@ router.post('/editteam', function(req, res) {
     });
 });
 
+/* REMOVE Team */
+router.post('/delete', function(req, res) {
+   var db = req.db;
+   
+   // Get query string contents
+   var hash = req.body.hash;
+   
+   // Get collection from db
+   var teams = db.get('Teams');
+   
+   teams.remove({
+       _id: hash
+   }, function(err, removed) {
+       if (err) {
+           res.send("Error removing from database");
+       }
+       else {
+           res.location("/");
+           res.redirect("/");
+       }
+   });
+});
+
 module.exports = router;
