@@ -10,13 +10,13 @@ block content
     table#leadertable.table.table-striped
         thead
             tr
-                th Position
+                th Place
                 th Team #
                 th Captain
                 th Score
         each team, i in teamlist
             tr
-                td= i+1
+                td= team.Ordinal
                 td= team.Team_Number
                 td= team.Team_Captain
                 td= team.Team_Score
