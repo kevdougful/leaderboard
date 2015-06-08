@@ -7,7 +7,8 @@ router.get('/', function (req, res) {
     var teams = db.get('Teams');
     teams.find({}, { "sort" : [['Team_Score','desc']] }, function (e, docs) {
         res.render('index', {
-            "teamlist" : docs
+            "teamlist" : docs,
+            "event" : "Event Name"
         });
     });
     //res.render('index', { title: 'Express' });
@@ -19,7 +20,8 @@ router.get('/edit', function (req, res) {
     var teams = db.get('Teams');
     teams.find({}, { "sort" : [['Team_Number','asc']] }, function (e, docs) {
         res.render('edit', {
-            "teamlist" : docs
+            "teamlist" : docs,
+            "event" : "Event Name"
         });
     });
 });
