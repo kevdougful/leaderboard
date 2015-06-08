@@ -21,6 +21,7 @@ router.get('/', function (req, res) {
     teams.find({}, { "sort" : [['Team_Score','desc']], "limit" : 10 }, function (e, docs) {
         docs = places(docs);
         res.render('index', {
+            "title" : "Leader Board",
             "teamlist" : docs,
             "event" : "Event Name"
         });
@@ -34,6 +35,7 @@ router.get('/edit', function (req, res) {
     var teams = db.get('Teams');
     teams.find({}, { "sort" : [['Team_Number','asc']] }, function (e, docs) {
         res.render('edit', {
+            "title" : "Edit Teams",
             "teamlist" : docs,
             "event" : "Event Name"
         });
