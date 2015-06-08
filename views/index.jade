@@ -1,21 +1,25 @@
 ﻿extends layout
 
 block append head
+    style.
+        body { padding: 0px; }
     meta(http-equiv="refresh", content="5; URL=/")
 
 block content
     .header
         img.headerItem(src="images/event-logo.png", style="height: 75px;")
-        h1(style="font-size: 75px;").headerItem= event
+        h1(style="font-size: 70px;").headerItem= event
     table#leadertable.table.table-striped
         thead
             tr
+                th
                 th Place
                 th Team #
                 th Captain
                 th Score
         each team, i in teamlist
             tr
+                td
                 td= team.Ordinal
                 td= team.Team_Number
                 td= team.Team_Captain
