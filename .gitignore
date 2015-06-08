@@ -31,3 +31,6 @@ node_modules
 *.njsproj
 style.css
 data
+
+#ignore the event-logo (keep the repository event-agnostic)
+public/images/event-logo.*
