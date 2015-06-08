@@ -14,11 +14,11 @@ router.get('/', function (req, res) {
 });
 
 /* ADD Team */
-router.get('/addteam', function (req, res) {
+router.get('/edit', function (req, res) {
     var db = req.db;
     var teams = db.get('Teams');
-    teams.find({}, { "sort" : [['Team_Score','desc']] }, function (e, docs) {
-        res.render('addteam', {
+    teams.find({}, { "sort" : [['Team_Number','asc']] }, function (e, docs) {
+        res.render('edit', {
             "teamlist" : docs
         });
     });
@@ -42,8 +42,8 @@ router.post('/addteam', function (req, res) {
             res.send("Error sending to database");
         }
         else {
-            res.location("/addteam");
-            res.redirect("/addteam");
+            res.location("/edit");
+            res.redirect("/edit");
         }
     });
 });
