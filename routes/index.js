@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function (req, res) {
     var db = req.db;
     var teams = db.get('Teams');
-    teams.find({}, { "sort" : [['Team_Score','desc']] }, function (e, docs) {
+    teams.find({}, { "sort" : [['Team_Score','desc']], "limit" : 10 }, function (e, docs) {
         res.render('index', {
             "teamlist" : docs,
             "event" : "Event Name"
