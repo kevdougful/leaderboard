@@ -21,7 +21,7 @@ function setPlaces(topten) {
             }
         }
     }
-    return JSON.parse(topten);
+    return topten;
 }
 
 function ordinal(n) {
@@ -47,6 +47,7 @@ router.get('/', function (req, res) {
     var db = req.db;
     var teams = db.get('Teams');
     teams.find({}, { "sort" : [['Team_Score','desc']], "limit" : 10 }, function (e, docs) {
+        docs = setPlaces(docs);
         res.render('index', {
             "teamlist" : docs,
             "event" : "Event Name"
