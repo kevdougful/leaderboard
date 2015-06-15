@@ -3,13 +3,19 @@ extends layout
 block content
 	include navbar
 	ul.nav.nav-tabs
-		li
+		li.active
 			a(href="#addPlayer") Add Player
 		li
 			a(href="#addTeam") Add Team
 	
 	.tab-content
-		#addPlayer.tab-pane
-			Add player
+		#addPlayer.tab-pane.active
+			form#formAddPlayer(name="addPlayer", method="post", action="/addPlayer")
+				.form-group
+					label(for="inputFirstName") First Name
+					input#inputFirstName.form-control(type="text", placeholder="John", name="firstname")
+				.form-group
+					label(for="inputLastName") Last Name
+					input#inputLastName.form-control(type="text", placeholder="Doe", name="lastname")
+						
 		#addTeam.tab-pane
-			Add team
