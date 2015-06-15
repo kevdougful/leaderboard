@@ -4,9 +4,9 @@ block content
 	include navbar
 	ul.nav.nav-tabs
 		li.active
-			a(href="#addPlayer") Add Player
+			a(href="#addPlayer", data-toggle="tab") Add Player
 		li
-			a(href="#addTeam") Add Team
+			a(href="#addTeam", data-toggle="tab") Add Team
 	
 	.tab-content
 		#addPlayer.tab-pane.active
@@ -17,5 +17,13 @@ block content
 				.form-group
 					label(for="inputLastName") Last Name
 					input#inputLastName.form-control(type="text", placeholder="Doe", name="lastname")
-						
+				.form-group
+					label(for="inputTeam") Team
+					select#selectTeam.form-control(name="team")
+				.form-group
+					label #[input(type="checkbox", name="captain")] Team Captain 
+				.form-group
+					button#btnSubmit.btn.btn-default(type="submit") Submit
+					button#btnClear.btn.btn-default(type="reset") Clear
+							
 		#addTeam.tab-pane
