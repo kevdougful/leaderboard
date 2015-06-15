@@ -118,4 +118,11 @@ router.post('/delete', function(req, res) {
    });
 });
 
+/* Registration page */
+router.get('/register', function(req, res) {
+   res.render('register', {
+       "event" : "Event Name"
+   }); 
+});
+
 module.exports = router;

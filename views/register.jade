@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	include navbar
+	ul.nav.nav-tabs
+		li
+			a(href="#addPlayer") Add Player
+		li
+			a(href="#addTeam") Add Team
+	
+	.tab-content
+		#addPlayer.tab-pane
+			Add player
+		#addTeam.tab-pane
+			Add team
