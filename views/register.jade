@@ -20,8 +20,11 @@ block content
 				.form-group
 					label(for="inputTeam") Team
 					select#selectTeam.form-control(name="team")
-				.form-group
-					label #[input(type="checkbox", name="captain")] Team Captain 
+						option(default) Select Team
+						option(disabled) 
+						
+						each team, i in teamlist
+							option(value="#{team.Team_Number}") #{team.Team_Captain}
 				.form-group
 					button#btnSubmit.btn.btn-default(type="submit") Submit
 					button#btnClear.btn.btn-default(type="reset") Clear

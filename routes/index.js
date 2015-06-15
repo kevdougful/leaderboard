@@ -120,9 +120,45 @@ router.post('/delete', function(req, res) {
 
 /* Registration page */
 router.get('/register', function(req, res) {
-   res.render('register', {
-       "event" : "Event Name"
-   }); 
+    var db = req.db;
+    
+    var teams = db.get('Teams');
+    teams.find({}, { "sort" : [['Last_Name','asc']] }, function (e, docs) {
+        res.render('register', {
+            "teamlist" : docs,
+            "event" : "Event Name"
+        });
+    });
+});
+
+/* POST Add Player */
+router.post('/addPlayer', function(req, res) {
+   // Get database object
+   var db = req.db;
+   
+   // Get query string contents
+   var firstName = req.body.firstname;
+   var lastName = req.body.lastname;
+   var team = req.body.team;
+   var captain = req.body.captain;
+   
+   // Get collection from the database
+   var players = db.get('Players');
+   
+   // Insert new player into database
+   players.insert({
+        "First_Name" : firstName,
+        "Last_Name" : lastName,
+        "Team" : Number(team),
+    }, function (err, doc) {
+        if (err) {
+            res.send("Error sending to database");
+        }
+        else {
+            res.location("/register");
+            res.redirect("/register");
+        }
+    });
 });
 
 module.exports = router;
